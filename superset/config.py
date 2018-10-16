@@ -39,10 +39,10 @@ PACKAGE_FILE = os.path.join(PACKAGE_DIR, 'package.json')
 with open(PACKAGE_FILE) as package_file:
     VERSION_STRING = json.load(package_file)['version']
 
-ROW_LIMIT = 50000
-VIZ_ROW_LIMIT = 10000
+ROW_LIMIT = 500
+VIZ_ROW_LIMIT = 500
 # max rows retrieved by filter select auto complete
-FILTER_SELECT_ROW_LIMIT = 10000
+FILTER_SELECT_ROW_LIMIT = 500
 SUPERSET_WORKERS = 2  # deprecated
 SUPERSET_CELERY_WORKERS = 32  # deprecated
 
@@ -95,10 +95,10 @@ ENABLE_PROXY_FIX = False
 # GLOBALS FOR APP Builder
 # ------------------------------
 # Uncomment to setup Your App name
-APP_NAME = 'Superset'
+APP_NAME = 'Catsnatcher'
 
 # Uncomment to setup an App icon
-APP_ICON = '/static/assets/images/superset-logo@2x.png'
+APP_ICON = 'https://cdn.shopify.com/s/files/1/1061/1924/products/Smiling_Cat_Emoji_Icon_d84dab9b-e144-4e75-a859-5442a109e95b_large.png?v=1513251058'
 
 # Druid query timezone
 # tz.tzutc() : Using utc timezone
@@ -192,7 +192,7 @@ IMG_UPLOAD_URL = '/static/uploads/'
 # Setup image size default is (300, 200, True)
 # IMG_SIZE = (300, 200, True)
 
-CACHE_DEFAULT_TIMEOUT = 60 * 60 * 24
+CACHE_DEFAULT_TIMEOUT = 60 * 60 * 24 * 20 # Updated to 20 days
 CACHE_CONFIG = {'CACHE_TYPE': 'null'}
 TABLE_NAMES_CACHE_CONFIG = {'CACHE_TYPE': 'null'}
 
@@ -202,13 +202,13 @@ CORS_OPTIONS = {}
 
 # Allowed format types for upload on Database view
 # TODO: Add processing of other spreadsheet formats (xls, xlsx etc)
-ALLOWED_EXTENSIONS = set(['csv'])
+# ALLOWED_EXTENSIONS = set(['csv'])
 
 # CSV Options: key/value pairs that will be passed as argument to DataFrame.to_csv method
 # note: index option should not be overridden
-CSV_EXPORT = {
-    'encoding': 'utf-8',
-}
+# CSV_EXPORT = {
+#     'encoding': 'utf-8',
+# } REMOVED
 
 # ---------------------------------------------------
 # Time grain configurations
@@ -286,10 +286,10 @@ MAPBOX_API_KEY = os.environ.get('MAPBOX_API_KEY', '')
 # Maximum number of rows returned from a database
 # in async mode, no more than SQL_MAX_ROW will be returned and stored
 # in the results backend. This also becomes the limit when exporting CSVs
-SQL_MAX_ROW = 100000
+SQL_MAX_ROW = 500
 
 # Limit to be returned to the frontend.
-DISPLAY_MAX_ROW = 1000
+DISPLAY_MAX_ROW = 500
 
 # Maximum number of tables/views displayed in the dropdown window in SQL Lab.
 MAX_TABLE_NAMES = 3000
@@ -384,7 +384,7 @@ SMTP_SSL = False
 SMTP_USER = 'superset'
 SMTP_PORT = 25
 SMTP_PASSWORD = 'superset'
-SMTP_MAIL_FROM = 'superset@superset.com'
+SMTP_MAIL_FROM = 'alerts@catsnatcher.com'
 
 if not CACHE_DEFAULT_TIMEOUT:
     CACHE_DEFAULT_TIMEOUT = CACHE_CONFIG.get('CACHE_DEFAULT_TIMEOUT')
